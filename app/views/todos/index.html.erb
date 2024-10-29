@@ -1,0 +1,14 @@
+<h1>To-Do List</h1>
+
+<%= link_to 'New To-Do', new_todo_path %>
+
+<ul>
+  <% @todos.each do |todo| %>
+    <li>
+      <%= link_to todo.title, todo %>
+      (<%= todo.completed ? 'Completed' : 'Incomplete' %>)
+      <%= link_to 'Edit', edit_todo_path(todo) %> |
+      <%= link_to 'Delete', todo, method: "delete", data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
